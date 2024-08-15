@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: monospace;
+        }
+        body{
+            background-color: #121212;
+            color: whitesmoke;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            font-size: 8rem;
+            text-shadow: 5px 5px red;
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <h1>O</h1>
+    </div>
+
+    <script>
+        const h1 = document.querySelector('h1')
+        console.log(h1.getBoundingClientRect());
+        
+        window.addEventListener('mousemove', (e)=>{
+
+            let h1Cords = h1.getBoundingClientRect()
+            textX = (h1Cords.x - e.clientX)/10 + 3
+            textY = (h1Cords.y - e.clientY)/10 + 8
+
+            h1.style.textShadow = `${textX}px ${textY}px red`
+            
+            console.log(textX + ' ' + textY);
+            
+        })
+    </script>
+</body>
+</html>

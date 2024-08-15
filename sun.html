@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: monospace;
+        }
+        body{
+            background-color: whitesmoke;
+            color: red;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: none;
+            overflow: hidden;
+            position: relative;
+        }
+        .con::before{
+            content: '';
+            width: 100%;
+            top: 60%;
+            left: 0;
+            position: absolute;
+            border-bottom: 2px solid black;            
+        }
+        img{
+            position: absolute;
+            z-index: 3;
+            width: 100px;
+            transform: translate(-50%, -50%);
+        }
+        h1{
+            font-size: 8rem;
+            text-shadow: 5px 5px black;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/1400/1400310.png" alt="">
+
+    <div class="con">
+        <h1>O</h1>
+    </div>
+
+    <script>
+        const h1 = document.querySelector('h1')
+        const sun = document.querySelector('img')
+        
+        window.addEventListener('mousemove', (e)=>{
+
+            let h1Cords = h1.getBoundingClientRect()
+            textX = (h1Cords.x - e.clientX)/10 + 3
+            textY = (h1Cords.y - e.clientY)/10 + 8
+
+            h1.style.textShadow = `${textX}px ${textY}px black`
+            
+            sun.style.left = e.clientX + 'px'
+            sun.style.top = e.clientY + 'px'
+            
+        })
+    </script>
+</body>
+</html>
